@@ -2,7 +2,7 @@
 
 require_relative "../spec_helper.rb"
 
-describe @name.camel_case do
+describe Blog do
   describe Post do
     # TODO: write specs
   end
