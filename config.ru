@@ -11,7 +11,7 @@ Rango::Router.use(:usher)
 
 # http://github.com/joshbuddy/usher
 Project.router = Usher::Interface.for(:rack) do
-  get("/").to(Blog::ShowCase.dispatcher(:index)).name(:showcase)
+  get("/").to(Blog::Posts.dispatcher(:index)).name(:posts)
 end
 
 use Rango::Middlewares::Basic

@@ -14,5 +14,4 @@ describe Blog do
   describe Comment do
     # TODO: write specs
   end
-
 end
