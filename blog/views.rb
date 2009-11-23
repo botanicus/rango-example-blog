@@ -2,7 +2,7 @@
 
 require "rango/controller"
 
-class Blog
+module Blog
   class Application < Rango::Controller
     # TODO: implement application controller
   end

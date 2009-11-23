@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class Blog
+module Blog
   class Post
     include DataMapper::Resource
     property :title, String

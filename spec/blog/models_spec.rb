@@ -3,6 +3,7 @@
 require_relative "../spec_helper.rb"
 
 describe Blog do
+  include Blog
   describe Post do
     # TODO: write specs
   end

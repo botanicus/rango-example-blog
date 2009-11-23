@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class Blog
+module Blog
   extend Rango::ImportMixin
   extend Rango::ApplicationMixin
 end
