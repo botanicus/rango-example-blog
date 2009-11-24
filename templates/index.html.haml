@@ -2,23 +2,11 @@
 - extends "base.html" unless request.ajax?
 
 / head
-- block(:title, "Welcome to Rango!")
-- block(:description, "This is just a welcome screen.")
-- block(:keywords, "example")
+- block(:title, "Rango Blog")
+- block(:description, "Example blog application in Rango")
+- block(:keywords, "rango,example")
 
 / body
 != block(:content) do
-  #next-steps
-    %h2 Next Steps
-    %ul
-      %li Run specs: <code>rake spec</code>
-
-  #links
-    %h2 Links
-    %ul
-      %li
-        %a{href: "http://wiki.github.com/botanicus/rango/tutorial"} Rango Tutorial
-      %li
-        %a{href: "http://wiki.github.com/botanicus/rango"} Rango Wiki
-      %li
-        %a{href: "http://github.com/botanicus/rango/issues"} Rango Issue Tracker
+  - @posts.each do |post|
+    .post!= link_to(post.title, url(:post, post.slug))

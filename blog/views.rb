@@ -8,6 +8,9 @@ module Blog
   end
 
   class Posts < Application
-    # TODO: implement posts controller
+    def index
+      @posts = Post.all
+      render "index.html"
+    end
   end
 end
