@@ -23,6 +23,7 @@ gem "haml"#, git: "git://github.com/nex3/haml.git"
 # ORM
 gem "dm-core"#, git: "git://github.com/datamapper/dm-core.git"
 gem "dm-timestamps"#, git: "git://github.com/datamapper/dm-more.git"
+gem "dm-aggregates"#, git: "git://github.com/datamapper/dm-more.git"
 
 # TODO: don't load them
 #gem "thin"#, git: "git://github.com/macournoyer/thin.git" # there seems to be some problems with latest thin
