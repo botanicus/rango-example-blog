@@ -12,10 +12,6 @@ rescue LoadError => exception
   abort "LoadError during loading gems/environment: #{exception.message}\nRun gem bundle to fix it."
 end
 
-# settings
-require_relative "settings"
-require_relative "settings_local"
-
 require "rango"
 
 environment = (ENV["RANGO_ENV"] || (RANGO_ENV if defined?(RANGO_ENV)) || "development").to_s
