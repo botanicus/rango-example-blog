@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require "rango/helpers"
 require "rango/controller"
 require "rango/mixins/render"
 require "rango/mixins/rendering"

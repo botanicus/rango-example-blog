@@ -9,5 +9,4 @@
 / body
 = block(:content) do
   - posts.each do |post|
-    - p self
     .post= link_to(post.title, url(:post, post.slug))
