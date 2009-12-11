@@ -1,16 +1,19 @@
 # encoding: utf-8
 
 require "rango/controller"
+require "rango/mixins/render"
+require "rango/mixins/rendering"
 
 module Blog
   class Application < Rango::Controller
+    include Rango::RenderMixin
+    include Rango::ExplicitRendering
     # TODO: implement application controller
   end
 
   class Posts < Application
     def index
-      @posts = Post.all
-      render "index.html"
+      render "index.html", posts: Post.all
     end
   end
 end
