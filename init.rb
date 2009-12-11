@@ -18,7 +18,10 @@ require_relative "settings_local"
 
 require "rango"
 
-environment = ENV["RANGO_ENV"] || (RANGO_ENV if defined?(RANGO_ENV)) || "development"
+environment = (ENV["RANGO_ENV"] || (RANGO_ENV if defined?(RANGO_ENV)) || "development").to_s
+unless %w[test development stage production].include?(environment)
+  abort "Unknown environment: #{environment}"
+end
 Rango.boot(environment: environment)
 
 Rango.logger.info("Loading dependencies for #{Rango.environment}")
