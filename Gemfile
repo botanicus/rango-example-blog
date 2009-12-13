@@ -13,6 +13,7 @@
 # it will download rango as well as all of rango' dependencies
 gem "rango"#, git: "git://github.com/botanicus/rango.git"
 gem "rack"#, git: "git://github.com/rack/rack.git"
+gem "tilt"#, git: "git://github.com/rtomayko/tilt.git"
 
 # router
 gem "usher"#, git: "git://github.com/joshbuddy/usher.git"
@@ -26,7 +27,7 @@ gem "dm-timestamps"#, git: "git://github.com/datamapper/dm-more.git"
 gem "dm-aggregates"#, git: "git://github.com/datamapper/dm-more.git"
 
 # TODO: don't load them
-#gem "thin"#, git: "git://github.com/macournoyer/thin.git" # there seems to be some problems with latest thin
+gem "thin", require_as: nil#, git: "git://github.com/macournoyer/thin.git" # there seems to be some problems with latest thin
 #gem "unicorn"#, git: "git://repo.or.cz/unicorn.git"
 gem "racksh", require_as: nil#, git: "git://github.com/sickill/racksh.git"
 
