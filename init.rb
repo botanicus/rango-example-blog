@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby1.9 --disable-gems
+#!/usr/bin/env ruby --disable-gems
 # encoding: utf-8
 
 # This file should set Rango environment
@@ -12,13 +12,13 @@ rescue LoadError => exception
   abort "LoadError during loading gems/environment: #{exception.message}\nRun gem bundle to fix it."
 end
 
-require "rango"
-require "rango/environments"
+require "rango/stacks/controller"
 
 environment = (ENV["RANGO_ENV"] || (RANGO_ENV if defined?(RANGO_ENV)) || "development").to_s
 unless %w[test development stage production].include?(environment)
   abort "Unknown environment: #{environment}"
 end
+
 Rango.boot(environment: environment)
 
 Rango.logger.info("Loading dependencies for #{Rango.environment}")
@@ -39,9 +39,9 @@ if ARGV.length > 0 && $0.eql?(__FILE__)
   # config.ru
   if ARGV.last.split(".").last.eql?("ru")
     if Rango.development?
-      load_relative "bin/shotgun"
+      load File.expand_path("bin/shotgun")
     else
-      load_relative "bin/rackup"
+      load File.expand_path("bin/rackup")
     end
   else
     load ARGV.shift

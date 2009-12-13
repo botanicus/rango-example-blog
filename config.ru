@@ -1,4 +1,4 @@
-#!/usr/bin/env ./init.rb -p 4000 -s webrick
+#!/usr/bin/env ./init.rb -p 4000 -s thin
 # encoding: utf-8
 
 # Load init.rb even if config.ru is just loaded
@@ -12,10 +12,10 @@ require "rango/rack/middlewares/basic"
 Rango::Router.use(:usher)
 
 # http://github.com/joshbuddy/usher
-Project.router = Usher::Interface.for(:rack) do
+Rango::Router.app = Usher::Interface.for(:rack) do
   get("/").to(Blog::Posts.dispatcher(:index)).name(:posts)
   get("/:slug").to(Blog::Posts.dispatcher(:show)).name(:post)
 end
 
 use Rango::Middlewares::Basic
-run Project.router
+run Rango::Router.app
